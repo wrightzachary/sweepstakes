@@ -13,4 +13,6 @@ class MarketingFirm:
         pass
 
     def menu(self):
-        pass
+        self.create_sweepstakes()
+        self.change_marketing_firm_name()
+        self.select_sweepstakes()
