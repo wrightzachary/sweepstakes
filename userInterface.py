@@ -3,6 +3,14 @@ from sweepstakes import Sweepstakes
 from marketingFirm import MarketingFirm
 
 
+class UserInterface:
+    def __init__(self):
+        pass
+
+    def run_user_interface(self):
+        pass
+
+
 @staticmethod
 def display_method(messages):
     pass
