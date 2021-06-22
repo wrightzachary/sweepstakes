@@ -5,3 +5,6 @@ class Contestant:
         self.email = ""
         self.address = ""
         self.registration_number = 0
+
+    def notify(self, is_winner):
+        pass
