@@ -1,6 +1,6 @@
 class Sweepstakes:
-    def __init__(self):
-        self.sweepstakes_name = ""
+    def __init__(self, name):
+        self.name = name
         self.contestants = []
 
     def register_contestants(self, contestant):
@@ -13,4 +13,6 @@ class Sweepstakes:
         pass
 
     def menu(self):
-        pass
+        self.register_contestants()
+        self.pick_winner()
+        self.view_contestants()
