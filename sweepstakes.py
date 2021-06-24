@@ -3,45 +3,50 @@ from userInterface import UserInterface
 
 
 class Sweepstakes:
-    def __init__(self, name):
-        self.sweepstakes_name = name
+    def __init__(self):
+        self.sweepstakes_name = "sweepstakes"
         self.contestants = {
-            "First name", "",
-            "Last name", "",
-            "Email name", "",
-            "Address", "",
-            "Registration number", "",
-        }
-        # self.contestants = Contestant
 
-    def register_contestant(self, contestant):
-        UserInterface.get_user_input_string(contestant)
-        self.contestants.update(self.contestants)
+        }
+
+    def register_contestant(self):
+        UserInterface.display_message(f'\tEnter contestant data: ')
+        self.contestants["First name: "] = UserInterface.get_user_input_string("\tFirst name: ")
+        self.contestants["Last name: "] = UserInterface.get_user_input_string("\tLast name: ")
+        self.contestants["Email: "] = UserInterface.get_user_input_string("\tEmail: ")
+        self.contestants["Address "] = UserInterface.get_user_input_string("\tAddress: ")
+        self.contestants["Registration number: "] = UserInterface.get_user_input_string(f"\tRegistration number: {random.randint(1, 100)}")
+        Sweepstakes.menu(self)
 
     @staticmethod
     def get_registration_number(contestant):
-        contestant.contestant_registration_number = 0000
-        for x in range(10):
-            print(random.randint(1, 101))
+        pass
 
-    @staticmethod
-    def pick_winner():
-        print(random.randint(0, 101))
+    def pick_winner(self):
+        print(f'\tWinner is {random.randint(1, 100)}')
+        value = int
+        if value in self.contestants:
+            print(f'\t Congratulations!')
+        else:
+            print(f'\tSorry, no winner present!')
+            Sweepstakes.menu(self)
 
     def view_contestants(self):
-        print(self.contestants)
+        UserInterface.display_contestant_info(self.contestants)
+        Sweepstakes.menu(self)
 
     def menu(self):
         UserInterface.display_sweepstakes_menu_options(self.sweepstakes_name)
-        user_response = int(input("\tPlease enter your selection: "))
-        if user_response == 1:
-            self.register_contestant(self.sweepstakes_name)
-        if user_response == 2:
+        response = int(input("\tPlease enter your selection: "))
+        UserInterface.display_message('')
+        if response == 1:
+            self.register_contestant()
+        elif response == 2:
             self.view_contestants()
-        if user_response == 3:
+        elif response == 3:
             self.pick_winner()
-        if user_response == 4:
-            UserInterface.display_marketing_firm_menu_options(self.contestants)
+        elif response == 4:
+            UserInterface.display_message("See you again!")
         else:
             print("\tNot a valid selection")
-            Sweepstakes.menu(self)
+            UserInterface.display_sweepstakes_menu_options(self.sweepstakes_name)

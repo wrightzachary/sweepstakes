@@ -14,27 +14,30 @@ class UserInterface:
         return response
 
     @staticmethod
-    def display_contestant_info(contestant):
-        print(contestant.first_name)
-        print(contestant.last_name)
-        print(contestant.email)
-        print(contestant.address)
-        print(contestant.registration_number)
+    def display_contestant_info(contestants):
+        print(f'\t{contestants.values()}')
+        UserInterface.display_sweepstakes_menu_options(contestants)
+        # print(contestants.first_name)
+        # print(contestants.last_name)
+        # print(contestants.email)
+        # print(contestants.address)
+        # print(contestants.registration_number)
 
     @staticmethod
     def display_sweepstakes_info(sweepstakes):
-        print(sweepstakes.sweepstakes_name)
-        print(f'{len(sweepstakes.contestants)} contestants')
+        UserInterface.display_message(f'\tWelcome!')
+        print('')
+        print("\tPress -1- to exit to sweepstakes menu")
 
     @staticmethod
     def display_sweepstakes_selections_menu(sweepstakes):
+        sweepstakes_name = ""
         print("\tWelcome to sweepstakes menu")
+        UserInterface.display_sweepstakes_menu_options(sweepstakes_name)
 
     @staticmethod
     def display_marketing_firm_menu_options(marketing_firm_name):
-        print("\tWelcome to devFirm!")
-        print('')
-        print("\tWhat would you like to do?")
+        print("\tWelcome!")
         print('')
         print("\tPress -1- to create a sweepstake")
         print("\tPress -2- to change firm name")
@@ -44,13 +47,12 @@ class UserInterface:
 
     @staticmethod
     def display_sweepstakes_menu_options(sweepstakes_name):
-        print("\tSweepstakes Menu")
         print('')
-        print("\tWhat would you like to do?")
+        print("\tSweepstakes Menu")
         print('')
         print("\tPress -1- to register")
         print("\tPress -2- to view contestants")
         print("\tPress -3- to pick winner")
-        print("\tPress -4- to return to marketing firm")
+        print("\tPress -4- to terminate session")
         print('')
-        UserInterface.get_user_input_number("\tPlease enter your selection: ")
+
