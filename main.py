@@ -1,5 +1,5 @@
-from userInterface import UserInterface
+from marketingFirm import MarketingFirm
 
 
-userInterface = UserInterface()
-userInterface.run_user_interface()
+marketingFirm = MarketingFirm()
+marketingFirm.menu()

@@ -8,21 +8,30 @@ class MarketingFirm:
         self.sweepstakes_storage = []
 
     def create_sweepstakes(self):
-        chosen_name = UserInterface.get_user_input_string("Enter sweepstakes name")
+        chosen_name = UserInterface.get_user_input_string("\tEnter new sweepstakes name")
         sweepstakes = Sweepstakes(chosen_name)
         self.sweepstakes_storage.append(sweepstakes)
 
     @staticmethod
     def change_marketing_firm_name():
-        change_name = UserInterface.get_user_input_string("Change firm name:")
+        change_name = UserInterface.get_user_input_string("\tChange firm name:")
         new_name = change_name
-        return new_name
+        print(f'\tMarketing firm name changed to {new_name}')
 
     def select_sweepstakes(self):
-        pass
+        self.marketing_firm_name = UserInterface.get_user_input_string("\tSelect your desired sweepstake")
 
     def menu(self):
-        self.create_sweepstakes()
-        self.change_marketing_firm_name()
-        self.select_sweepstakes()
-
+        UserInterface.display_marketing_firm_menu_options(self.marketing_firm_name)
+        response = int(input("\tPlease enter your selection: "))
+        if response == 1:
+            self.create_sweepstakes()
+        if response == 2:
+            self.change_marketing_firm_name()
+        if response == 3:
+            self.select_sweepstakes()
+        if response == 4:
+            UserInterface.display_sweepstakes_menu_options(self.sweepstakes_storage)
+        else:
+            print("\tNot a valid selection")
+            MarketingFirm.menu(self)
