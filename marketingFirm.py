@@ -12,7 +12,7 @@ class MarketingFirm:
         chosen_name = UserInterface.get_user_input_string("\tEnter new sweepstakes name")
         UserInterface.display_message('')
         sweepstakes = Sweepstakes()
-        self.sweepstakes_storage.append(self.sweepstakes_storage)
+        self.sweepstakes_storage.append(chosen_name)
         print(f"\tYou created {chosen_name} ")
         UserInterface.display_message('')
         MarketingFirm.menu(self)
