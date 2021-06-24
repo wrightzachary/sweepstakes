@@ -7,6 +7,7 @@ class MarketingFirm:
         self.marketing_firm_name = ""
         self.sweepstakes_storage = ["Boat", "Weekend getaway"]
 
+    # create sweepstakes
     def create_sweepstakes(self):
         chosen_name = UserInterface.get_user_input_string("\tEnter new sweepstakes name")
         UserInterface.display_message('')
@@ -16,6 +17,7 @@ class MarketingFirm:
         UserInterface.display_message('')
         MarketingFirm.menu(self)
 
+    # change firm name
     def change_marketing_firm_name(self):
         change_name = UserInterface.get_user_input_string("\tChange firm name:")
         new_name = change_name
@@ -26,6 +28,7 @@ class MarketingFirm:
         # UserInterface.display_marketing_firm_menu_options(self.marketing_firm_name)
         MarketingFirm.menu(self)
 
+    # select  a sweepstake
     def select_sweepstakes(self):
         self.marketing_firm_name = UserInterface.get_user_input_string("\tSelect your desired sweepstake")
         UserInterface.display_message('')
@@ -39,6 +42,7 @@ class MarketingFirm:
             UserInterface.display_message("Not a valid selection")
             MarketingFirm.select_sweepstakes(self)
 
+    # menu
     def menu(self):
         UserInterface.display_marketing_firm_menu_options(self.marketing_firm_name)
         response = int(input("\tPlease enter your selection: "))
@@ -52,5 +56,6 @@ class MarketingFirm:
         elif response == 4:
             UserInterface.display_sweepstakes_menu_options(self.sweepstakes_storage)
         else:
-            print("\tNot a valid selection")
-            UserInterface.display_sweepstakes_info(self.marketing_firm_name)
+            UserInterface.display_message("\tNot a valid selection")
+            UserInterface.display_message('')
+            MarketingFirm.menu(self)
